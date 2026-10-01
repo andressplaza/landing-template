@@ -1,0 +1,114 @@
+{
+  "siteName": "Clínica Dental Sonrisa",
+  "seoTitle": "Dentista en Elche | Clínica Dental Sonrisa",
+  "seoDescription": "Clínica dental en Elche: blanqueamiento, ortodoncia invisible e implantes. Primera visita con diagnóstico gratuito. Pide cita hoy.",
+  "theme": "clean",
+  "accentColor": "",
+  "footerText": "Calle Ejemplo 12, 03202 Elche · Tel. 600 000 000",
+  "blocks": [
+    {
+      "discriminant": "hero",
+      "value": {
+        "eyebrow": "Dentista en Elche",
+        "title": "Una sonrisa sana, sin miedo ni sorpresas",
+        "subtitle": "Tratamientos explicados con claridad, presupuesto cerrado antes de empezar y cita en menos de 48 horas.",
+        "ctaLabel": "Pedir cita gratis",
+        "ctaHref": "#contacto",
+        "secondaryLabel": "Ver tratamientos",
+        "secondaryHref": "#servicios",
+        "image": null,
+        "imageAlt": ""
+      }
+    },
+    {
+      "discriminant": "features",
+      "value": {
+        "title": "Tratamientos para toda la familia",
+        "subtitle": "Del chequeo anual a la rehabilitación completa, en una sola clínica.",
+        "items": [
+          {
+            "icon": "✨",
+            "title": "Blanqueamiento dental",
+            "text": "Hasta 8 tonos más claros en una sesión, con protección de encías y esmalte."
+          },
+          {
+            "icon": "😁",
+            "title": "Ortodoncia invisible",
+            "text": "Alineadores transparentes y planificación digital para que veas el resultado antes de empezar."
+          },
+          {
+            "icon": "🦷",
+            "title": "Implantes dentales",
+            "text": "Recupera una pieza perdida con una solución fija y natural, con seguimiento personalizado."
+          }
+        ]
+      }
+    },
+    {
+      "discriminant": "pricing",
+      "value": {
+        "title": "Precios claros desde el primer día",
+        "subtitle": "Sin letra pequeña. Financiación disponible.",
+        "plans": [
+          {
+            "name": "Revisión + limpieza",
+            "price": "49 €",
+            "period": "",
+            "description": "Ideal como primera visita.",
+            "features": [
+              "Diagnóstico completo",
+              "Limpieza profesional",
+              "Plan de tratamiento por escrito"
+            ],
+            "ctaLabel": "Reservar",
+            "ctaHref": "#contacto",
+            "highlighted": false
+          },
+          {
+            "name": "Blanqueamiento",
+            "price": "190 €",
+            "period": "",
+            "description": "Nuestro tratamiento más pedido.",
+            "features": [
+              "Revisión previa",
+              "Sesión en clínica",
+              "Kit de mantenimiento"
+            ],
+            "ctaLabel": "Quiero blanquear",
+            "ctaHref": "#contacto",
+            "highlighted": true
+          }
+        ]
+      }
+    },
+    {
+      "discriminant": "faq",
+      "value": {
+        "title": "Preguntas frecuentes",
+        "items": [
+          {
+            "question": "¿Duele el tratamiento?",
+            "answer": "Trabajamos con anestesia moderna y técnicas poco invasivas. La mayoría de pacientes nos dicen que no sintieron nada."
+          },
+          {
+            "question": "¿Puedo pagar a plazos?",
+            "answer": "Sí. Ofrecemos financiación sin intereses en tratamientos seleccionados. Te lo explicamos en la primera visita."
+          },
+          {
+            "question": "¿Cuánto tardan en darme cita?",
+            "answer": "Normalmente en menos de 48 horas. Para urgencias dentales, el mismo día."
+          }
+        ]
+      }
+    },
+    {
+      "discriminant": "cta",
+      "value": {
+        "title": "Empieza con una revisión gratuita",
+        "text": "Cuéntanos qué necesitas y te llamamos hoy mismo.",
+        "ctaLabel": "Llamar ahora",
+        "ctaHref": "tel:+34600000000"
+      }
+    }
+  ]
+}

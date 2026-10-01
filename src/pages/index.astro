@@ -1,0 +1,37 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+import BlockRenderer from '../components/blocks/BlockRenderer.astro';
+import landing from '../content/landing/index.json';
+
+const blocks = landing.blocks as { discriminant: string; value: Record<string, any> }[];
+
+const navLabels: Record<string, [string, string]> = {
+  features: ['servicios', 'Servicios'],
+  testimonials: ['opiniones', 'Opiniones'],
+  pricing: ['precios', 'Precios'],
+  faq: ['faq', 'Preguntas'],
+};
+const links = blocks
+  .filter((b) => navLabels[b.discriminant])
+  .map((b) => ({ href: `#${navLabels[b.discriminant][0]}`, label: navLabels[b.discriminant][1] }));
+
+const hero = blocks.find((b) => b.discriminant === 'hero')?.value;
+---
+
+<Layout
+  title={landing.seoTitle}
+  description={landing.seoDescription}
+  theme={landing.theme}
+  accentColor={landing.accentColor}
+>
+  <Header
+    siteName={landing.siteName}
+    links={links}
+    ctaLabel={hero?.ctaLabel}
+    ctaHref={hero?.ctaHref}
+  />
+  <BlockRenderer blocks={blocks} />
+  <Footer siteName={landing.siteName} footerText={landing.footerText} />
+</Layout>

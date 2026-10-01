@@ -1,0 +1,27 @@
+---
+import Button from '../Button.astro';
+
+interface Props {
+  id?: string;
+  title: string;
+  text?: string;
+  ctaLabel: string;
+  ctaHref?: string;
+}
+const { id, title, text, ctaLabel, ctaHref = '#' } = Astro.props;
+---
+
+<section id={id} class="bg-accent text-accent-contrast">
+  <div class="mx-auto max-w-3xl px-5 py-16 text-center md:py-20">
+    <h2 class="text-3xl md:text-4xl">{title}</h2>
+    {text && <p class="mt-4 text-lg opacity-90">{text}</p>}
+    <div class="mt-8">
+      <a
+        href={ctaHref}
+        class="inline-flex items-center justify-center rounded-brand bg-bg px-7 py-3 text-base font-semibold text-text transition hover:opacity-90"
+      >
+        {ctaLabel}
+      </a>
+    </div>
+  </div>
+</section>

@@ -1,0 +1,124 @@
+{
+  "$comment": "Contrato único entre agentes, validador y CMS. Si cambias un bloque, actualiza también keystatic.config.ts y su componente en src/components/blocks.",
+  "themes": ["clean", "warm", "bold"],
+  "site": {
+    "siteName": { "type": "text", "required": true, "max": 50 },
+    "seoTitle": { "type": "text", "required": true, "max": 65 },
+    "seoDescription": { "type": "text", "required": true, "max": 160 },
+    "theme": { "type": "theme", "required": true },
+    "accentColor": { "type": "hex", "required": false },
+    "footerText": { "type": "text", "required": false, "max": 140 }
+  },
+  "rules": {
+    "firstBlock": "hero",
+    "single": ["hero", "cta"],
+    "lastBlock": "cta",
+    "minBlocks": 4,
+    "maxBlocks": 9
+  },
+  "blocks": {
+    "hero": {
+      "anchor": null,
+      "purpose": "Portada. Promesa clara, un único CTA principal.",
+      "fields": {
+        "eyebrow": { "type": "text", "max": 40 },
+        "title": { "type": "text", "required": true, "max": 80 },
+        "subtitle": { "type": "text", "max": 220 },
+        "ctaLabel": { "type": "text", "required": true, "max": 28 },
+        "ctaHref": { "type": "href", "required": true },
+        "secondaryLabel": { "type": "text", "max": 28 },
+        "secondaryHref": { "type": "href" },
+        "image": { "type": "image" },
+        "imageAlt": { "type": "text", "max": 140 }
+      }
+    },
+    "features": {
+      "anchor": "servicios",
+      "purpose": "Servicios o ventajas (3 a 6 elementos).",
+      "fields": {
+        "title": { "type": "text", "required": true, "max": 70 },
+        "subtitle": { "type": "text", "max": 200 },
+        "items": {
+          "type": "array",
+          "required": true,
+          "min": 3,
+          "max": 6,
+          "item": {
+            "icon": { "type": "text", "max": 4 },
+            "title": { "type": "text", "required": true, "max": 50 },
+            "text": { "type": "text", "required": true, "max": 200 }
+          }
+        }
+      }
+    },
+    "testimonials": {
+      "anchor": "opiniones",
+      "purpose": "Prueba social (2 a 4 opiniones). Solo con opiniones reales aportadas por el cliente.",
+      "fields": {
+        "title": { "type": "text", "required": true, "max": 70 },
+        "items": {
+          "type": "array",
+          "required": true,
+          "min": 2,
+          "max": 4,
+          "item": {
+            "quote": { "type": "text", "required": true, "max": 280 },
+            "name": { "type": "text", "required": true, "max": 50 },
+            "role": { "type": "text", "max": 60 }
+          }
+        }
+      }
+    },
+    "pricing": {
+      "anchor": "precios",
+      "purpose": "Planes o tarifas (1 a 3). Un plan destacado como máximo.",
+      "fields": {
+        "title": { "type": "text", "required": true, "max": 70 },
+        "subtitle": { "type": "text", "max": 200 },
+        "plans": {
+          "type": "array",
+          "required": true,
+          "min": 1,
+          "max": 3,
+          "item": {
+            "name": { "type": "text", "required": true, "max": 40 },
+            "price": { "type": "text", "required": true, "max": 20 },
+            "period": { "type": "text", "max": 20 },
+            "description": { "type": "text", "max": 140 },
+            "features": { "type": "list", "required": true, "min": 2, "max": 8, "max_item": 80 },
+            "ctaLabel": { "type": "text", "required": true, "max": 28 },
+            "ctaHref": { "type": "href", "required": true },
+            "highlighted": { "type": "checkbox" }
+          }
+        }
+      }
+    },
+    "faq": {
+      "anchor": "faq",
+      "purpose": "Preguntas frecuentes que resuelven objeciones (3 a 8).",
+      "fields": {
+        "title": { "type": "text", "required": true, "max": 70 },
+        "items": {
+          "type": "array",
+          "required": true,
+          "min": 3,
+          "max": 8,
+          "item": {
+            "question": { "type": "text", "required": true, "max": 120 },
+            "answer": { "type": "text", "required": true, "max": 400 }
+          }
+        }
+      }
+    },
+    "cta": {
+      "anchor": "contacto",
+      "purpose": "Cierre con llamada a la acción. Siempre el último bloque.",
+      "fields": {
+        "title": { "type": "text", "required": true, "max": 80 },
+        "text": { "type": "text", "max": 220 },
+        "ctaLabel": { "type": "text", "required": true, "max": 28 },
+        "ctaHref": { "type": "href", "required": true }
+      }
+    }
+  }
+}

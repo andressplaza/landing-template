@@ -1,0 +1,62 @@
+---
+import Button from '../Button.astro';
+
+interface Plan {
+  name: string;
+  price: string;
+  period?: string;
+  description?: string;
+  features: string[];
+  ctaLabel: string;
+  ctaHref?: string;
+  highlighted?: boolean;
+}
+interface Props {
+  id?: string;
+  title: string;
+  subtitle?: string;
+  plans: Plan[];
+}
+const { id, title, subtitle, plans = [] } = Astro.props;
+---
+
+<section id={id} class="bg-surface">
+  <div class="mx-auto max-w-6xl px-5 py-16 md:py-20">
+    <div class="mx-auto max-w-2xl text-center">
+      <h2 class="text-3xl md:text-4xl">{title}</h2>
+      {subtitle && <p class="mt-4 text-lg text-muted">{subtitle}</p>}
+    </div>
+    <div class="mt-12 grid gap-6 lg:grid-cols-3 lg:items-stretch">
+      {plans.map((plan) => (
+        <article
+          class={`flex flex-col rounded-brand border bg-bg p-7 ${plan.highlighted ? 'border-2 border-accent shadow-lg' : 'border-border'}`}
+        >
+          {plan.highlighted && (
+            <p class="mb-3 text-xs font-bold uppercase tracking-widest text-accent">Más elegido</p>
+          )}
+          <h3 class="text-xl">{plan.name}</h3>
+          <p class="mt-3">
+            <span class="text-4xl font-bold">{plan.price}</span>
+            {plan.period && <span class="text-muted"> {plan.period}</span>}
+          </p>
+          {plan.description && <p class="mt-3 text-muted">{plan.description}</p>}
+          <ul class="mt-6 flex-1 space-y-2">
+            {plan.features.map((f) => (
+              <li class="flex gap-2">
+                <span class="font-bold text-accent" aria-hidden="true">✓</span>
+                <span>{f}</span>
+              </li>
+            ))}
+          </ul>
+          <Button
+            href={plan.ctaHref}
+            variant={plan.highlighted ? 'primary' : 'secondary'}
+            class="mt-8 w-full"
+          >
+            {plan.ctaLabel}
+          </Button>
+        </article>
+      ))}
+    </div>
+  </div>
+</section>

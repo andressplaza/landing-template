@@ -1,0 +1,45 @@
+/* Design tokens. El agente diseñador solo elige un tema y, si hace falta, un
+   color de marca (accentColor). Los temas se definen aquí, nunca en los bloques. */
+
+:root,
+[data-theme='clean'] {
+  --bg: #ffffff;
+  --surface: #f6f7f9;
+  --text: #111827;
+  --muted: #5b6472;
+  --border: #e3e6eb;
+  --accent: #0e7490;
+  --accent-contrast: #ffffff;
+  --radius: 0.75rem;
+  --font-heading-stack: ui-sans-serif, system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif;
+  --font-body-stack: ui-sans-serif, system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif;
+  --heading-weight: 700;
+}
+
+[data-theme='warm'] {
+  --bg: #fffaf3;
+  --surface: #f6ecdd;
+  --text: #2b2118;
+  --muted: #6b5a49;
+  --border: #e8dac5;
+  --accent: #b45309;
+  --accent-contrast: #ffffff;
+  --radius: 1.25rem;
+  --font-heading-stack: ui-serif, Georgia, 'Times New Roman', serif;
+  --font-body-stack: ui-sans-serif, system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif;
+  --heading-weight: 600;
+}
+
+[data-theme='bold'] {
+  --bg: #0b0f17;
+  --surface: #131a26;
+  --text: #f3f5f9;
+  --muted: #a3adbd;
+  --border: #243044;
+  --accent: #22d3ee;
+  --accent-contrast: #06222a;
+  --radius: 0.5rem;
+  --font-heading-stack: ui-sans-serif, system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif;
+  --font-body-stack: ui-sans-serif, system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif;
+  --heading-weight: 800;
+}

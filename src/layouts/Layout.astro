@@ -1,0 +1,44 @@
+---
+import '../styles/global.css';
+import { isHex, readableOn } from '../lib/color';
+
+interface Props {
+  title: string;
+  description: string;
+  theme?: string;
+  accentColor?: string;
+}
+
+const { title, description, theme = 'clean', accentColor } = Astro.props;
+
+const overrides: string[] = [];
+if (isHex(accentColor)) {
+  const { color } = readableOn(accentColor);
+  overrides.push(`--accent:${accentColor.trim()}`, `--accent-contrast:${color}`);
+}
+const canonical = Astro.site ? new URL(Astro.url.pathname, Astro.site).href : undefined;
+---
+
+<!doctype html>
+<html lang="es" data-theme={theme} style={overrides.join(';') || undefined}>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>{title}</title>
+    <meta name="description" content={description} />
+    {canonical && <link rel="canonical" href={canonical} />}
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:type" content="website" />
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+  </head>
+  <body class="min-h-screen antialiased">
+    <a
+      href="#contenido"
+      class="sr-only focus:not-sr-only focus:fixed focus:left-4 focus:top-4 focus:z-50 focus:rounded-brand focus:bg-accent focus:px-4 focus:py-2 focus:text-accent-contrast"
+    >
+      Saltar al contenido
+    </a>
+    <slot />
+  </body>
+</html>

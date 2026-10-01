@@ -1,0 +1,47 @@
+---
+import Hero from './Hero.astro';
+import Features from './Features.astro';
+import Testimonials from './Testimonials.astro';
+import Pricing from './Pricing.astro';
+import Faq from './Faq.astro';
+import Cta from './Cta.astro';
+
+interface Block {
+  discriminant: string;
+  value: Record<string, unknown>;
+}
+interface Props {
+  blocks: Block[];
+}
+
+const { blocks } = Astro.props;
+
+// Registro: para añadir un bloque nuevo, créalo aquí, en keystatic.config.ts y en src/lib/block-spec.json
+const registry: Record<string, any> = {
+  hero: Hero,
+  features: Features,
+  testimonials: Testimonials,
+  pricing: Pricing,
+  faq: Faq,
+  cta: Cta,
+};
+
+// Anclas fijas por bloque (las usan el menú y los CTA: #servicios, #precios, #contacto...)
+const anchors: Record<string, string | undefined> = {
+  features: 'servicios',
+  testimonials: 'opiniones',
+  pricing: 'precios',
+  faq: 'faq',
+  cta: 'contacto',
+};
+---
+
+<main id="contenido">
+  {
+    blocks.map((block) => {
+      const Component = registry[block.discriminant];
+      if (!Component) return null;
+      return <Component {...block.value} id={anchors[block.discriminant]} />;
+    })
+  }
+</main>

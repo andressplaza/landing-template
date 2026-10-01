@@ -1,0 +1,23 @@
+---
+interface Props {
+  href?: string;
+  variant?: 'primary' | 'secondary';
+  class?: string;
+}
+const { href = '#', variant = 'primary', class: extra = '' } = Astro.props;
+const external = /^https?:\/\//.test(href);
+const base =
+  'inline-flex items-center justify-center rounded-brand px-6 py-3 text-base font-semibold transition focus-visible:outline-offset-2';
+const styles =
+  variant === 'primary'
+    ? 'bg-accent text-accent-contrast hover:opacity-90'
+    : 'border border-border bg-transparent text-text hover:bg-surface';
+---
+
+<a
+  href={href}
+  class={`${base} ${styles} ${extra}`}
+  {...(external ? { target: '_blank', rel: 'noopener noreferrer' } : {})}
+>
+  <slot />
+</a>
